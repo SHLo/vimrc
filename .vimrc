@@ -15,6 +15,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'git://github.com/altercation/vim-colors-solarized.git'
+Plugin 'scrooloose/nerdtree'
 
 filetype plugin indent on
 
