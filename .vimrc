@@ -38,9 +38,4 @@ inoremap <right> <nop>
 
 let g:user_emmet_leader_key=';'
 
-" color by solarized
-syntax enable
-set background=dark
-" colorscheme solarized
-
 set encoding=utf-8
