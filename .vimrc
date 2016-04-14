@@ -16,12 +16,16 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'git://github.com/altercation/vim-colors-solarized.git'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
 
 filetype plugin indent on
 
 set expandtab
 set shiftwidth=4
 set softtabstop=4
+set scrolloff=3
+set foldmethod=syntax
+set hidden
 
 set autoindent
 syntax on
