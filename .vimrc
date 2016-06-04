@@ -60,6 +60,7 @@ set mouse=a
 set backspace=indent,eol,start
 set foldmethod=syntax
 set nofoldenable
+set lbr
 
 nnoremap <up> <nop>
 nnoremap <down> <nop>
