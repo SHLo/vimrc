@@ -62,6 +62,7 @@ set backspace=indent,eol,start
 set foldmethod=syntax
 set nofoldenable
 set lbr
+set backupcopy=yes
 
 nnoremap <up> <nop>
 nnoremap <down> <nop>
