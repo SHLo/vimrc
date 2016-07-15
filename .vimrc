@@ -38,6 +38,7 @@ Plugin 'Valloric/YouCompleteMe'
     let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 Plugin 'ternjs/tern_for_vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -45,9 +46,9 @@ Plugin 'nathanaelkane/vim-indent-guides'
 filetype plugin indent on
 
 set expandtab
-set shiftwidth=4
-set softtabstop=4
-set scrolloff=3
+set shiftwidth=2
+set softtabstop=2
+set scrolloff=1
 set hidden
 
 set autoindent
@@ -71,11 +72,13 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
+autocmd FileType python setlocal shiftwidth=4 tabstop=4
+
 let g:user_emmet_leader_key=';'
 
 set encoding=utf-8
 " no need to restart vim after saving vimrc to take effect
- autocmd BufWritePost $MYVIMRC source $MYVIMRC
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " ----- Plugin-Specific Settings --------------------------------------
 
@@ -84,10 +87,10 @@ set encoding=utf-8
 set background=dark
 
 " Uncomment the next line if your terminal is not configured for solarized
- let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 
 " Set the colorscheme
- colorscheme solarized
+colorscheme solarized
 
 " ----- bling/vim-airline settings -----
 " Always show statusbar
@@ -108,7 +111,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " ----- jistr/vim-nerdtree-tabs -----
 " Open/close NERDTree Tabs with \t
-nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
+" nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 " To have NERDTree always open on startup
 let g:nerdtree_tabs_open_on_console_startup = 1
 
@@ -151,3 +154,10 @@ augroup mydelimitMate
   au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
   au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
+
+" ----- vim-jsx settings -----
+let g:jsx_ext_required = 0
+
+" ----- tern-vim settings -----
+let g:tern_map_keys=1
+let g:tern_show_argument_hints='on_hold'
