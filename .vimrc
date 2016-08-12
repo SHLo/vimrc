@@ -162,3 +162,6 @@ let g:jsx_ext_required = 0
 " ----- tern-vim settings -----
 let g:tern_map_keys=1
 let g:tern_show_argument_hints='on_hold'
+
+" ----- Unite map -----
+nnoremap <Leader>f :Unite -start-insert file_rec<CR>
