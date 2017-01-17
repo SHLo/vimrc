@@ -42,12 +42,13 @@ Plugin 'mxw/vim-jsx'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Shougo/denite.nvim'
 
 filetype plugin indent on
 
 set expandtab
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 set scrolloff=1
 set hidden
 
@@ -73,7 +74,7 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-autocmd FileType python setlocal shiftwidth=4 tabstop=4
+autocmd FileType python setlocal shiftwidth=4 softtabstop=4
 
 let g:user_emmet_leader_key=';'
 
@@ -163,5 +164,19 @@ let g:jsx_ext_required = 0
 let g:tern_map_keys=1
 let g:tern_show_argument_hints='on_hold'
 
-" ----- Unite map -----
-nnoremap <Leader>f :Unite -start-insert file_rec<CR>
+" ----- Denite map -----
+nnoremap <Leader>f :Denite file_rec<CR>
+nnoremap <Leader>b :Denite buffer<CR>
+let g:globs = ['node_modules/']
+" Change ignore_globs
+call denite#custom#source(
+  \ 'file_rec', 'matchers', ['matcher_fuzzy', 'matcher_ignore_globs'])
+  call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+        \ [
+        \ '.git/', '.ropeproject/', '__pycache__/',
+        \ 'venv/',
+        \ 'images/',
+        \ '*.min.*',
+        \ '*.pyc',
+        \ 'dist/',
+        \ 'img/', 'fonts/', 'node_modules/'])
