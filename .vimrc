@@ -111,6 +111,9 @@ let g:airline_detect_paste=1
 " Show airline for tabs too
 let g:airline#extensions#tabline#enabled = 1
 
+"Plugin 'scrooloose/nerdtree'
+"set NERDTree window width
+let g:NERDTreeWinSize=20
 " ----- jistr/vim-nerdtree-tabs -----
 " Open/close NERDTree Tabs with \t
 " nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
