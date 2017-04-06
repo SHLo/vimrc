@@ -58,7 +58,7 @@ set number
 set ruler
 set incsearch
 set hlsearch
-set mouse=a
+set mouse=nv
 set backspace=indent,eol,start
 set foldmethod=syntax
 set nofoldenable
@@ -82,6 +82,11 @@ set encoding=utf-8
 " no need to restart vim after saving vimrc to take effect
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
+" Yank text to the OS X clipboard"
+noremap <leader>y "*y
+noremap <leader>yy "*Y
+" Preserve indentation while pasting text from the OS X clipboard
+noremap <leader>p :set paste<CR>:put *<CR>:set nopaste<CR>
 " ----- Plugin-Specific Settings --------------------------------------
 
 " ----- altercation/vim-colors-solarized settings -----
