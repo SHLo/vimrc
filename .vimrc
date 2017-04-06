@@ -47,8 +47,8 @@ Plugin 'Shougo/denite.nvim'
 filetype plugin indent on
 
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set scrolloff=1
 set hidden
 
