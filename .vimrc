@@ -8,9 +8,9 @@ Plugin 'gmarik/vundle'
 
 "my Plugin here:
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'tomasr/molokai'
+"Plugin 'tomasr/molokai'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'scrooloose/syntastic'
 
@@ -18,7 +18,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 
-Plugin 'Shougo/unite.vim'
+"Plugin 'Shougo/unite.vim'
 
 " ----- Working with Git ----------------------------------------------
 Plugin 'airblade/vim-gitgutter'
@@ -34,8 +34,8 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'Raimondi/delimitMate'
 Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/YouCompleteMe'
-    let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-    let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"    let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+"    let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 Plugin 'ternjs/tern_for_vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
@@ -128,6 +128,9 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 " ----- scrooloose/syntastic settings -----
 let g:syntastic_error_symbol = '✘'
 let g:syntastic_warning_symbol = "▲"
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint'
+
 augroup mySyntastic
   au!
   au FileType tex let b:syntastic_mode = "passive"

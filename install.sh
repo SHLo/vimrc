@@ -9,4 +9,4 @@ mkdir -p ~/.config/nvim
 ln -s ~/vimrc/init.vim ~/.config/nvim/init.vim
 
 # PlugInstall
-nvim +PlugInstall
+nvim +PlugInstall +qa
