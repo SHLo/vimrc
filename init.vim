@@ -64,7 +64,7 @@ let g:ackprg = 'ag --vimgrep' " use ag in ack plug in
 
 " Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
-nmap s <Plug>(easymotion-overwin-f2)
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1  " Turn on case insensitive feature
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
