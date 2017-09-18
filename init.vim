@@ -14,6 +14,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
