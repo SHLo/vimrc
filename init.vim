@@ -15,6 +15,8 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tarekbecker/vim-yaml-formatter'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 call plug#end()
 
@@ -24,6 +26,8 @@ set shiftwidth=2
 set softtabstop=2
 set number
 set laststatus=2
+set autoindent
+set autowrite
 
 
 "Plug 'scrooloose/nerdtree'
@@ -55,8 +59,11 @@ let g:airline_base16_solarized = 1
 let g:airline#extensions#ale#enabled = 1 " ale message on airline status bar
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
+\   'python': ['yapf'],
 \}
+let g:ale_linters = {'python': ['yapf'], 'go': ['gometalinter', 'gofmt']}
 " let g:ale_fix_on_save = 1
+g:ale_go_gometalinter_options = '--fast'
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
@@ -69,3 +76,28 @@ nmap <Leader>s <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1  " Turn on case insensitive feature
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+" Plug 'fatih/vim-go'
+let g:go_fmt_command = "goimports"
+augroup go
+  autocmd!
+  " :GoBuild and :GoTestCompile
+  autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+  " :GoRun
+  autocmd FileType go nmap <leader>r  <Plug>(go-run)
+  " :GoTest
+  autocmd FileType go nmap <leader>t  <Plug>(go-test)
+  " :GoCoverageToggle
+  autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+augroup END
+
+" build_go_files is a custom function that builds or compiles the test file.
+" It calls :GoBuild if its a Go file, or :GoTestCompile if it's a test file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
