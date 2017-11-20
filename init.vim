@@ -61,9 +61,11 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'python': ['yapf'],
 \}
-let g:ale_linters = {'python': ['yapf'], 'go': ['gometalinter', 'gofmt']}
+let g:ale_linters = {
+\   'python': ['yapf'],
+\}
 " let g:ale_fix_on_save = 1
-g:ale_go_gometalinter_options = '--fast'
+"g:ale_go_gometalinter_options = `--fast`
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
@@ -81,6 +83,8 @@ map <Leader>k <Plug>(easymotion-k)
 let g:go_fmt_command = "goimports"
 augroup go
   autocmd!
+  " Show by default 4 spaces for a tab
+  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
   " :GoBuild and :GoTestCompile
   autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
   " :GoRun
@@ -101,3 +105,6 @@ function! s:build_go_files()
     call go#cmd#Build(0)
   endif
 endfunction
+
+" Plug 'junegunn/fzf'
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
