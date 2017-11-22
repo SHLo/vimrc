@@ -29,6 +29,10 @@ set laststatus=2
 set autoindent
 set autowrite
 
+" fix python path for nvim to avoid virtualenv issue
+let g:python_host_prog = '/usr/local/opt/python/libexec/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 
 "Plug 'scrooloose/nerdtree'
 let g:NERDTreeWinSize=20  "set NERDTree window width
